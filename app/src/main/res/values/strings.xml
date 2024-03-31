@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">project</string>
+    <string name="login">login</string>
+    <string name="btn_edit_lesson">Edit lesson</string>
+    <string name="fill_fields">Fill fields</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="addPr">Add product</string>
+    <string name="addTe">Add teacher</string>
+    <string name="addLe">Add lesson</string>
+    <string name="hello">Hello</string>
+    <string name="update">Update</string>
+    <string name="editTeacher">Edit teacher</string>
+    <string name="editLesson">Edit lesson</string>
+    <string name="incorrect">Incorrect login or password</string>
+    <string name="error">Error</string>
+    <string name="passwordErr">Passwords do not match</string>
 </resources>
