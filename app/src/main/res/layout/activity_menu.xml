@@ -20,7 +20,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bAddProduct"
+        android:id="@+id/bProfile"
         android:text="Профіль" />
     <Button
         android:layout_width="match_parent"
