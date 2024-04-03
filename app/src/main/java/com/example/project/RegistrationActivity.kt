@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import java.util.*
+import java.io.File
 
 class RegistrationActivity : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 1
@@ -30,15 +31,7 @@ class RegistrationActivity : AppCompatActivity() {
         val bReg= findViewById<Button>(R.id.bReg)
         val eConfirm= findViewById<EditText>(R.id.eConfirm)
         val intentAuth= Intent(this,AuthActivity::class.java)
-//        imageView = findViewById(R.id.img)
-//        imageView.setOnClickListener {
-//            // Запускаємо Intent для вибору зображення з галереї
-//            val galleryIntent = Intent(
-//                Intent.ACTION_PICK,
-//                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-//            )
-//            startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST)
-//        }
+
         bReg.setOnClickListener {
             val name = eName.text.toString().trim()
             val last_name = eLastName.text.toString().trim()
@@ -56,6 +49,19 @@ class RegistrationActivity : AppCompatActivity() {
             if (pass != conf) {
                 Toast.makeText(this, getString(R.string.passwordErr), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
+            }
+
+            // Отримати шлях до зображення зі спільних налаштувань
+            val filePath = sharedPreferences.getString(Const.FILE_PATH, null)
+
+            // Видалити зображення, якщо воно існує
+            filePath?.let {
+                val file = File(it)
+                if (file.exists()) {
+                    file.delete()
+                }
+                // Очистити шлях до зображення у спільних налаштуваннях
+                sharedPreferences.edit().remove(Const.FILE_PATH).apply()
             }
 
             sharedPreferences.edit().apply {
@@ -89,6 +95,10 @@ class RegistrationActivity : AppCompatActivity() {
             datePickerDialog.show()
         }
     }
+
+// Не забудьте імпортувати необхідні класи
+
+
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        super.onActivityResult(requestCode, resultCode, data)
 //        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
