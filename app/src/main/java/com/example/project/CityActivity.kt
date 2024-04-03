@@ -69,6 +69,13 @@ class CityActivity : AppCompatActivity() {
         cityList.add(CityModel("Kyiv", "Ukraine"))
         cityList.add(CityModel("New York", "USA"))
         cityList.add(CityModel("London", "UK"))
+        cityList.add(CityModel("Paris", "France"))
+        cityList.add(CityModel("Berlin", "Germany"))
+        cityList.add(CityModel("Tokyo", "Japan"))
+        cityList.add(CityModel("Moscow", "Russia"))
+        cityList.add(CityModel("Sydney", "Australia"))
+        cityList.add(CityModel("Rome", "Italy"))
+        cityList.add(CityModel("Toronto", "Canada"))
         // Add more cities as needed
         return cityList
     }
