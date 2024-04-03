@@ -2,6 +2,7 @@ package com.example.project
 
 import android.Manifest
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -26,6 +27,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
+import java.util.*
 
 class ProfileActivity : AppCompatActivity() {
     private val sharedPreferences: SharedPreferences by lazy {
@@ -102,6 +104,24 @@ class ProfileActivity : AppCompatActivity() {
                 val scaledBitmap = scaleBitmapToImageView(bitmap)
                 imageView.setImageBitmap(scaledBitmap)
             }
+        }
+        val calendar = Calendar.getInstance()
+
+        val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+            // Встановлюємо вибрану дату у поле eDate
+            eDate.setText(String.format("%d-%02d-%02d", year, monthOfYear + 1, dayOfMonth))
+        }
+
+        eDate.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(
+                this@ProfileActivity,
+                dateSetListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
+            datePickerDialog.show()
         }
     }
 

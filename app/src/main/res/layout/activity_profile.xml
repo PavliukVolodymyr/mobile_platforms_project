@@ -35,10 +35,13 @@
         android:hint="Email" />
 
     <EditText
-        android:id="@+id/eDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Date" />
+        android:hint="date"
+        android:id="@+id/eDate"
+        android:focusable="false"
+        android:clickable="true"
+        />
 
     <Button
         android:id="@+id/bUpdate"

@@ -1,5 +1,6 @@
 package com.example.project
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import java.util.*
 
 class RegistrationActivity : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 1
@@ -67,6 +69,24 @@ class RegistrationActivity : AppCompatActivity() {
                 apply()
             }
             startActivity(intentAuth)
+        }
+        val calendar = Calendar.getInstance()
+
+        val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+            // Встановлюємо вибрану дату у поле eDate
+            eDate.setText(String.format("%d-%02d-%02d", year, monthOfYear + 1, dayOfMonth))
+        }
+
+        eDate.setOnClickListener {
+            val datePickerDialog = DatePickerDialog(
+                this@RegistrationActivity,
+                dateSetListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+            datePickerDialog.datePicker.maxDate = System.currentTimeMillis()
+            datePickerDialog.show()
         }
     }
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

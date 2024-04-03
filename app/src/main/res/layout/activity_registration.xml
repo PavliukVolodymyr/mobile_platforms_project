@@ -29,6 +29,8 @@
         android:layout_height="wrap_content"
         android:hint="date"
         android:id="@+id/eDate"
+        android:focusable="false"
+        android:clickable="true"
         />
     <EditText
         android:layout_width="match_parent"
