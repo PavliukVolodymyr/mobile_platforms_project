@@ -9,14 +9,20 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="name"
+        android:hint="firstname"
         android:id="@+id/eName"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="phone"
-        android:id="@+id/ePhone"
+        android:hint="lastname"
+        android:id="@+id/eLastName"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:id="@+id/eEmail"
         />
     <EditText
         android:layout_width="match_parent"

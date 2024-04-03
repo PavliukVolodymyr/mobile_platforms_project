@@ -20,13 +20,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="lastname"
+        android:id="@+id/eLastName"
+        />
 
 
     <EditText
-        android:id="@+id/ePhone"
+        android:id="@+id/eEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone" />
+        android:hint="Email" />
 
     <EditText
         android:id="@+id/eDate"

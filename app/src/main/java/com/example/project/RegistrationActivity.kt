@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -21,10 +20,11 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
         val eName= findViewById<EditText>(R.id.eName)
+        val eLastName= findViewById<EditText>(R.id.eLastName)
         val eLogin= findViewById<EditText>(R.id.eLogin)
         val ePass= findViewById<EditText>(R.id.ePassword)
         val eDate= findViewById<EditText>(R.id.eDate)
-        val ePhone= findViewById<EditText>(R.id.ePhone)
+        val ePhone= findViewById<EditText>(R.id.eEmail)
         val bReg= findViewById<Button>(R.id.bReg)
         val eConfirm= findViewById<EditText>(R.id.eConfirm)
         val intentAuth= Intent(this,AuthActivity::class.java)
@@ -39,13 +39,14 @@ class RegistrationActivity : AppCompatActivity() {
 //        }
         bReg.setOnClickListener {
             val name = eName.text.toString().trim()
+            val last_name = eLastName.text.toString().trim()
             val login = eLogin.text.toString().trim()
-            val phone = ePhone.text.toString().trim()
+            val email = ePhone.text.toString().trim()
             val date = eDate.text.toString().trim()
             val pass = ePass.text.toString().trim()
             val conf = eConfirm.text.toString().trim()
 
-            if (name.isEmpty() || login.isEmpty() || phone.isEmpty() || date.isEmpty() || pass.isEmpty() || conf.isEmpty()) {
+            if (name.isEmpty() || last_name.isEmpty() || login.isEmpty() || email.isEmpty() || date.isEmpty() || pass.isEmpty() || conf.isEmpty()) {
                 Toast.makeText(this, getString(R.string.fill_fields), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -57,8 +58,9 @@ class RegistrationActivity : AppCompatActivity() {
 
             sharedPreferences.edit().apply {
                 putString(Const.NAME, name)
+                putString(Const.LAST_NAME, last_name)
                 putString(Const.LOGIN, login)
-                putString(Const.PHONE, phone)
+                putString(Const.EMAIL, email)
                 putString(Const.DATE, date)
                 putString(Const.PASSWORD, pass)
                 putInt(Const.AUTH,0)
