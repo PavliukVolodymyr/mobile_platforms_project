@@ -16,4 +16,8 @@
     <string name="error">Error</string>
     <string name="passwordErr">Passwords do not match</string>
     <string name="profile_updated">Profile updated</string>
+    <string name="addCity">Додати місто</string>
+    <string name="editCity">Редагувати місто</string>
+    <string name="btn_edit_city">Редагувати місто</string>
+
 </resources>

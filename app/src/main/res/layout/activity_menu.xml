@@ -6,17 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/tvUserInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:text="Основна інформація про користувача тут"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Список пар"
-        android:id="@+id/bPairList"/>
+        android:text="Список міст"
+        android:id="@+id/bCityList"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Список вчителів"
-        android:id="@+id/bStudentList"/>
+        android:text="Список активностей"
+        android:id="@+id/bEventList"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
